@@ -19,6 +19,7 @@ const Landing = () => {
           image={item.image}
           name={item.title}
           cost={item.price}
+          id={item.id}
         />
       ))}
     </div>
