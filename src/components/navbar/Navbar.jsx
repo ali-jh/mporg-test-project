@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/image/logo.png";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const Navbar = () => {
+  const [userProfile, setUserProfile] = useLocalStorage("userProfile", null);
   return (
     <header className={styles.header}>
       <div className={styles.listContainer}>
@@ -11,9 +13,13 @@ const Navbar = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/login">login</Link>
-          </li>
+          {userProfile ? (
+            <span>{userProfile?.username}</span>
+          ) : (
+            <li>
+              <Link to="/login">login</Link>
+            </li>
+          )}
         </ul>
       </div>
       <div className={styles.logo}>
