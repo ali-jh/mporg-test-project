@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className={styles.listContainer}>
         <ul className={styles.list}>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/landing">Home</Link>
           </li>
           {userProfile ? (
             <span>{userProfile?.username}</span>
